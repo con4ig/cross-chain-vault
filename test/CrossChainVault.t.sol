@@ -6,7 +6,7 @@ import {SourceVault} from "../src/SourceVault.sol";
 import {DestinationVault} from "../src/DestinationVault.sol";
 import {Any2EVMMessage, EVMTokenAmount, EVM2AnyMessage, IRouterClient, IERC20} from "../src/Interfaces.sol";
 
-/// @notice Tests use mock addresses — no fork needed.
+/// @notice Tests use mock addresses - no fork needed.
 /// CCIP Router calls are intercepted with vm.mockCall.
 contract CrossChainVaultTest is Test {
     SourceVault      source;
@@ -30,7 +30,7 @@ contract CrossChainVaultTest is Test {
             abi.encodeWithSelector(IRouterClient.getFee.selector),
             abi.encode(CCIP_FEE));
 
-        // Stub ccipSend — returns a fake messageId
+        // Stub ccipSend - returns a fake messageId
         vm.mockCall(ROUTER,
             abi.encodeWithSelector(IRouterClient.ccipSend.selector),
             abi.encode(bytes32("MSG_ID")));

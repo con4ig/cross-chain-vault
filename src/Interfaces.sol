@@ -8,7 +8,7 @@ interface IERC20 {
     function approve(address, uint256) external returns (bool);
 }
 
-// Chainlink CCIP — minimal surface needed to send and receive messages
+// Chainlink CCIP - minimal surface needed to send and receive messages
 struct EVMTokenAmount {
     address token;
     uint256 amount;

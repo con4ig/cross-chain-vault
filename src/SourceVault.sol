@@ -36,7 +36,7 @@ contract SourceVault {
         IERC20(token).transferFrom(msg.sender, address(this), amount);
 
         // ponytail: tokens stay locked on Chain A; DestinationVault only records credit.
-        // Actual token bridging requires CCIP token pool registration — out of scope here.
+        // Actual token bridging requires CCIP token pool registration - out of scope here.
         EVM2AnyMessage memory message = EVM2AnyMessage({
             receiver:     abi.encode(destVault),
             data:         abi.encode(msg.sender, amount),
@@ -52,7 +52,7 @@ contract SourceVault {
         emit DepositSent(msg.sender, amount, messageId);
     }
 
-    /// @notice Emergency withdraw — owner only.
+    /// @notice Emergency withdraw - owner only.
     function withdrawToken(address tkn) external {
         require(msg.sender == owner, "Only owner");
         uint256 bal = IERC20(tkn).balanceOf(address(this));
